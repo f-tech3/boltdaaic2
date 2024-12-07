@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 255 255 255;
+  --foreground: 15 23 42;
+  --card: 255 255 255;
+  --card-foreground: 15 23 42;
+  --border: 226 232 240;
+  --input: 226 232 240;
+  --primary: 46 204 113;
+  --ring: 46 204 113;
+}
+
+:root[class~="dark"] {
+  --background: 26 31 46;
+  --foreground: 226 232 240;
+  --card: 31 36 55;
+  --card-foreground: 226 232 240;
+  --border: 51 65 85;
+  --input: 51 65 85;
+  --primary: 46 204 113;
+  --ring: 46 204 113;
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .supports-[backdrop-filter]\:bg-\[rgb\(var\(--background\)\)\]\/80 {
+    background-color: rgb(var(--background) / 0.8);
+    backdrop-filter: blur(12px);
+  }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--card));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--primary) / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--primary) / 0.5);
+}
+
+body {
+  @apply bg-[rgb(var(--background))] text-[rgb(var(--foreground))];
+}
+
+#root {
+  @apply min-h-screen;
+}
